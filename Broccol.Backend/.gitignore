@@ -2,9 +2,13 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs
-/bin
+/.vs/BlazoRsvp/config
+/.vs/BlazoRsvp/DesignTimeBuild
+/.vs/BlazoRsvp/FileContentIndex
+/.vs/BlazoRsvp/v17/TestStore/0
+/.vs/BlazoRsvp/v17
+/.vs/ProjectEvaluation
+/bin/Debug/net7.0
+/BlazoRsvp.Tests/bin/Debug/net7.0
+/BlazoRsvp.Tests/obj
 /obj
-/Broccol.Backend.Tests/bin
-/Broccol.Backend.Tests/obj
-/Broccol.Backend.Tests/.vs
