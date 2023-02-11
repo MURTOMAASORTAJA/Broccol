@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Collections.Generic;
+using System.Reflection;
 using System.Text.Json;
 
 namespace Broccol.Backend.Data
@@ -10,19 +11,19 @@ namespace Broccol.Backend.Data
     {
         private const string InvalidNameCharacters = "1234567890!\"#¤%&/()[]{}\\/|@£€$<>^\n\r\t\0,.;:";
         private const string InvalidEmailCharacters = "#¤%&/()[]{} \\/|<>$€^\n\r\t\0";
-        private EventSettings eventSettings;
-        private EventBook book;
-        private string bookFilePath;
+        private readonly EventSettings eventSettings;
+        private readonly EventBook book;
+        private readonly string bookFilePath;
         private bool saving = false;
-        private RocketChatAnnouncer rocket;
-        private List<RegistrationSession> sessions = new List<RegistrationSession>();
+        private readonly RocketChatAnnouncer? rocket;
+        private readonly List<RegistrationSession> sessions = new();
 
-        public RsvpService(EventSettings settings, RocketChatAnnouncer rocketChatAnnouncer)
+        public RsvpService(EventSettings settings, RocketChatAnnouncer? rocketChatAnnouncer)
         {
             eventSettings = settings;
             if (eventSettings == null)
             {
-                throw new ArgumentNullException("EventSettings is null.");
+                throw new ArgumentNullException(nameof(settings));
             }
             rocket = rocketChatAnnouncer;
             bookFilePath = GetBookFilePath();
@@ -68,7 +69,7 @@ namespace Broccol.Backend.Data
         {
             if (book == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(book));
             }
 
             File.WriteAllText(bookFilePath, JsonSerializer.Serialize(book));
@@ -255,12 +256,12 @@ namespace Broccol.Backend.Data
 
             if
             (
-                !email.Contains("@") ||
-                email.StartsWith("@") ||
-                email.EndsWith("@") ||
-                !email.Contains(".") ||
-                email.StartsWith(".") ||
-                email.EndsWith(".")
+                !email.Contains('@') ||
+                email.StartsWith('@') ||
+                email.EndsWith('@') ||
+                !email.Contains('.') ||
+                email.StartsWith('.') ||
+                email.EndsWith('.')
             )
             {
                 return Failure("Invalid email.");
@@ -299,8 +300,8 @@ namespace Broccol.Backend.Data
             }
         }
 
-        private static RsvpResult Success() => new RsvpResult(true);
-        private static RsvpResult Failure(string message) => new RsvpResult(false, message);
+        private static RsvpResult Success() => new(true);
+        private static RsvpResult Failure(string message) => new(false, message);
     }
 
     public class RsvpResult

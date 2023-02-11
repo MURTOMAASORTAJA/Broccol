@@ -2,7 +2,7 @@
 {
     public class AdminBotCache
     {
-        public List<BotAdmin> Admins { get; set; }
+        public List<BotAdmin> Admins { get; set; } = new List<BotAdmin>();
 
     }
 }

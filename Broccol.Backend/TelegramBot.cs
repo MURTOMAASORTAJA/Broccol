@@ -15,7 +15,6 @@ namespace Broccol.Backend
     {
         private readonly TelegramBotClient Client;
         private readonly CancellationTokenSource Cts = new ();
-        private readonly WebApplication app;
         private readonly RsvpService Service;
         private List<TelegramSession> Sessions { get; set; } = new();
         private User Me { get; set; }
@@ -43,7 +42,7 @@ namespace Broccol.Backend
             return new TelegramBotClient(settings.TelegramBotToken);
         }
 
-        public async void StartReceiving()
+        public void StartReceiving()
         {
 
             // StartReceiving does not block the caller thread. Receiving is done on the ThreadPool.
@@ -160,8 +159,12 @@ namespace Broccol.Backend
             }
         }
 
-        public (string,ReplyKeyboardMarkup?)[] GetResponses(string messageFromUser, RsvpService service)
+        public (string, ReplyKeyboardMarkup?)[] GetResponses(string messageFromUser, RsvpService service)
         {
+            if (From == null)
+            {
+                return Array.Empty<(string, ReplyKeyboardMarkup?)>();
+            }
             var existingEntry = service.GetEntryByEmailOrTg(From.Id.ToString());
             switch (State)
             {
