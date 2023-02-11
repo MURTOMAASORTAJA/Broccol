@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Broccol.Backend", "Broccol.Backend\Broccol.Backend.csproj", "{81754311-678D-49DF-BAF2-2100CED0F593}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Broccol.Backend.Tests", "Broccol.Backend.Tests\Broccol.Backend.Tests.csproj", "{20ED744B-C42F-47C8-AB05-CDA983DA1C77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81754311-678D-49DF-BAF2-2100CED0F593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81754311-678D-49DF-BAF2-2100CED0F593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81754311-678D-49DF-BAF2-2100CED0F593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81754311-678D-49DF-BAF2-2100CED0F593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20ED744B-C42F-47C8-AB05-CDA983DA1C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20ED744B-C42F-47C8-AB05-CDA983DA1C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20ED744B-C42F-47C8-AB05-CDA983DA1C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20ED744B-C42F-47C8-AB05-CDA983DA1C77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3587593-FE99-459B-A554-DD193B4FA529}
+	EndGlobalSection
+EndGlobal

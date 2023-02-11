@@ -1,0 +1,31 @@
+﻿@using Broccol.Backend.Data;
+<h3>AdminView</h3>
+
+<EditForm>
+    <InputText @bind-Value="SearchText" onchange="RefreshEntries()" oninput="RefreshEntries()" onkeydown="RefreshEntries()"></InputText>
+</EditForm>
+
+@if (Entries.Any())
+{
+    @foreach (var entry in Entries)
+    {
+        <p>@entry.Name</p>
+        <p>@entry.Language</p>
+        @if (entry.TgUserName != null)
+        {
+            <p>@entry.TgUserName</p>
+        }
+    }
+}
+
+
+@code {
+    public string SearchText { get; set; } = "";
+
+    public RsvpEntry[] Entries { get; set; }
+
+    public void RefreshEntries()
+    {
+        
+    }
+}
